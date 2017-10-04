@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0RC1
+Created-By: 25.77-b03 (Oracle Corporation)
+Eclipse-RegisterBuddy: oracle.rcsrt,oracle.adf-share-ca
+Bundle-SymbolicName: oracle.jdeveloper.asadapter
+Bundle-Version: 12.2.1
+Bundle-ManifestVersion: 2
+Bundle-ClassPath: .
+Require-Bundle: oracle.javatools,oracle.rcsrt,oracle.davclient,oracle.
+ javatools-nodeps,oracle.adf-share-ca,oracle.adf-share-base,oracle.adf
+ -share-support,oracle.external.jee-api,oracle.javaxide,oracle.externa
+ l.nlsrtl,oracle.external.oracle-jrf-wsm-common,oracle.external.oracle
+ -jrf-wsdl,oracle.external.jsp,oracle.external.servlet-runtime,oracle.
+ jewt-olaf2
+Export-Package: META-INF,oracle.jdeveloper.rcasadapter,oracle.jdevelop
+ er.rcasadapter.res,oracle.rc.asadapter,oracle.rc.asadapter.common,ora
+ cle.rc.asadapter.connection,oracle.rc.asadapter.connection.spi,oracle
+ .rc.asadapter.context,oracle.rc.asadapter.context.spi,oracle.rc.asada
+ pter.deploy,oracle.rc.asadapter.http,oracle.rc.asadapter.jsr198,oracl
+ e.rc.asadapter.mbean.proxy,oracle.rc.asadapter.mgmt,oracle.rc.asadapt
+ er.resource,oracle.rc.asadapter.resource.spi
+Oracle-ProjectName: rcasadapter
+Oracle-ProjectType: EXTENSION
+Oracle-Version: 12.2.1.2.42.161008.1648
+Oracle-Label: JDEVADF_12.2.1.2.0_GENERIC_161008.1648.S
+Oracle-Label-JDEVADF: JDEVADF_12.2.1.2.0_GENERIC_161008.1648.S
+Oracle-Builder: user=aime host=slc03tuw
+Oracle-Internal-Release: 12.2.1.2.0
+Oracle-BuildSystem: Linux - java - 1.8.0_77-b03
+Oracle-BuildTimestamp: 2016-10-08 06:12:55 -0700
+

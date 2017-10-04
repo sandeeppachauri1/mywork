@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<hwTaskFlows xmlns="http://xmlns.oracle.com/bpel/workflow/hwTaskFlowProperties">
+   <ApplicationName>worklist</ApplicationName>
+   <LookupType>LOCAL</LookupType>
+   <TaskFlowDeploy>false</TaskFlowDeploy>
+   <TaskFlowServer>
+      <hostName/>
+      <httpPort/>
+      <httpsPort/>
+   </TaskFlowServer>
+<hwTaskFlow><WorkflowName>ReviewRequestedInventory</WorkflowName><TaskDefinitionNamespace>http://xmlns.oracle.com/InventoryManagerApex_BPM/InventoryApexBPMManager/ReviewRequestedInventory</TaskDefinitionNamespace><TaskFlowId>ReviewRequestedInventory_TaskFlow</TaskFlowId><TaskFlowFileName>WEB-INF/ReviewRequestedInventory_TaskFlow.xml</TaskFlowFileName></hwTaskFlow></hwTaskFlows>

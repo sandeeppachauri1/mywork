@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<extension xmlns="http://jcp.org/jsr/198/extension-manifest" esdk-version="1.0" id="oracle.jdeveloper.asadapter" rsbundle-class="oracle.jdeveloper.rcasadapter.res.ASAdapterBundle" version="12.2.1.2.42.161008.1648">
+  <name rskey="EXTENSION_NAME"/>
+  <owner rskey="EXTENSION_OWNER"/>
+  
+  
+  
+  <trigger-hooks xmlns="http://xmlns.oracle.com/ide/extension">
+    <registry>
+      <trigger-hook-handler handler-class="javax.ide.extension.DeferredElementVisitorHook" schema-location="asadapter-spi-hook.xsd" namespace="http://xmlns.oracle.com/ide/extension" register-as-hook="true" tag-name="asadapter-spi-hook"/>
+    </registry>
+  </trigger-hooks>
+  
+  
+</extension>

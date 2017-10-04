@@ -1,0 +1,59 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org"
+     elementFormDefault="qualified" xmlns:Q1="http://www.example.org">
+    <xsd:element name="request" type="Q1:inventoryRequestData"/>
+    <xsd:element name="response" type="Q1:inventoryResponseData"/>
+    <xsd:element name="bpmRequest" type="Q1:inventoryBPMRequestData"/>
+    <xsd:complexType name="inventoryRequestData">
+        <xsd:sequence>
+            <xsd:element name="inventoryRequestList" type="Q1:inventoryRequestMaster" maxOccurs="unbounded"
+                 minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="inventoryResponseData">
+        <xsd:sequence>
+            <xsd:element name="inventoryResponseDataList" type="Q1:inventoryResponseDataList" maxOccurs="unbounded"
+                 minOccurs="0"/>
+            <xsd:element name="requestStatus" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!-- For Internal BPM Uses Only
+
+-->
+    <xsd:complexType name="inventoryBPMRequestData">
+        <xsd:sequence>
+            <xsd:element name="inventoryRequestBPMList" type="Q1:inventoryRequestMaster" maxOccurs="unbounded"
+                 minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="inventoryRequestMaster">
+        <xsd:sequence>
+            <xsd:element name="DC_CODE" type="xsd:string"/>
+            <xsd:element name="ADJ_NO" type="xsd:string"/>
+            <xsd:element name="TRAN_DATE" type="xsd:string"/>
+            <xsd:element name="REQUESTED_BY" type="xsd:string"/>
+            <xsd:element name="REASON_CODE" type="xsd:string"/>
+            <xsd:element name="STORER" type="xsd:string"/>
+            <xsd:element name="BIN_CODE" type="xsd:string"/>
+            <xsd:element name="ITEM" type="xsd:string"/>
+            <xsd:element name="REASON" type="xsd:string"/>
+            <xsd:element name="ADJ_DAT" type="xsd:string"/>
+
+<!--<xsd:element name="REASON_CODE" type="xsd:string"/>
+-->
+            <xsd:element name="ADJ_QTY" type="xsd:string"/>
+            <xsd:element name="Transaction_ID" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="inventoryResponseDataList">
+        <xsd:sequence>
+            <xsd:element name="DC_CODE" type="xsd:string"/>
+            <xsd:element name="BIN_CODE" type="xsd:string"/>
+            <xsd:element name="ITEM" type="xsd:string"/>
+            <xsd:element name="UNIT" type="xsd:string"/>
+            <xsd:element name="REASON" type="xsd:string"/>
+            <xsd:element name="SELL_BY_DATE" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

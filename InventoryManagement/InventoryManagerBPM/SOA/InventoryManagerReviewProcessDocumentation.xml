@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="12.1.3" fileRevision="20120601"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+   <component name="InventoryManagerReviewProcess">
+      <topicDocumentations>
+         <topicDocumentation name="InventoryManagerReviewProcess"/>
+         <topicDocumentation name="ACT19513724954360">
+            <labels>
+               <label locale="en">InventoryManager_Rev1</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT19513726474179">
+            <labels>
+               <label locale="en">InventoryManager_Rev2</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT19513727301371">
+            <labels>
+               <label locale="en">InventoryManager_Rev3</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT19513708995815">
+            <labels>
+               <label locale="en">Start</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT19513708995883">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW19513728585634">
+            <labels>
+               <label locale="en">ExclusiveGateway_To_L2</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW19513730282334">
+            <labels>
+               <label locale="en">ExclusiveGateway_To_L3</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW19513731167653">
+            <labels>
+               <label locale="en">ExclusiveGateway_To_End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf19513708995891"/>
+         <topicDocumentation name="sf19513732200212"/>
+         <topicDocumentation name="sf1951373241471"/>
+         <topicDocumentation name="sf19513732738627"/>
+         <topicDocumentation name="sf19513733388363"/>
+         <topicDocumentation name="sf1951373378733"/>
+         <topicDocumentation name="sf19513734344679"/>
+      </topicDocumentations>
+   </component>
+</processDocumentation>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="inventorymanager_l3" ClientType="Generic">
+  <pageMap>
+    <page path="/InventoryManager_L3_TaskDetails.jspx"
+          usageId="inventorymanager_l3_InventoryManager_L3_TaskDetailsPageDef"/>
+    <page path="/InventoryManager_L3_TaskNotification.jspx"
+          usageId="inventorymanager_l3_InventoryManager_L3_TaskNotificationPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="inventorymanager_l3_InventoryManager_L3_TaskDetailsPageDef"
+          path="inventorymanager_l3.pageDefs.InventoryManager_L3_TaskDetailsPageDef"/>
+    <page id="inventorymanager_l3_InventoryManager_L3_TaskNotificationPageDef"
+          path="inventorymanager_l3.pageDefs.InventoryManager_L3_TaskNotificationPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="InventoryManager_L3_InventoryManager_L3"
+        path="inventorymanager_l3.InventoryManager_L3_InventoryManager_L3"/>
+  </dataControlUsages>
+</Application>

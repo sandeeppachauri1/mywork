@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+        xmlns:tns="http://xmlns.oracle.com/portlet/oracle-portlet-app" 
+        targetNamespace="http://xmlns.oracle.com/portlet/oracle-portlet-app"  
+        elementFormDefault="qualified" 
+        attributeFormDefault="unqualified" 
+        version="1.0" 
+        xml:lang="en">
+
+  <annotation>
+    <documentation>
+      This is the XML Schema for the Oracle Specific Portlet Extension Deployment Descriptor. 
+    </documentation>
+  </annotation>
+
+  <import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+
+  <element name="portlet-app-extension" type="tns:portlet-app-extensionType">
+    <annotation>
+      <documentation>
+        The portlet-app-extension element is the root of the deployment descriptor 
+        for the Oracle portlet application extension. This element has a required 
+        attribute 'version' to specify to which version of the schema the deployment 
+        descriptor conforms.
+      </documentation>
+    </annotation>
+
+    <unique name="portlet-name-uniqueness">
+      <annotation>
+        <documentation>
+          The portlet-extension/portlet-name element contains the name of a portlet.
+          This name must be unique within the portlet-app-extension element.
+        </documentation>
+      </annotation>
+      <selector xpath="tns:portlet-extension"/>
+      <field xpath="tns:portlet-name"/>
+    </unique>
+
+    <unique name="portlet-id-uniqueness">
+      <annotation>
+        <documentation>
+          The portlet-extension/portlet-id element defines an id for a portlet.
+          This id must be unique within the portlet-app-extension element.
+        </documentation>
+      </annotation>
+      <selector xpath="tns:portlet-extension"/>
+      <field xpath="tns:portlet-id"/>
+    </unique>
+
+  </element>
+
+  <complexType name="portlet-app-extensionType">
+    <sequence>
+      <element name="portlet-extension" type="tns:portlet-extensionType" minOccurs="0" maxOccurs="unbounded">
+        <unique name="published-event-name-uniqueness">
+          <annotation>
+            <documentation>
+              The published-events element contains the published event's name.
+              This published event name must be unique within the portlet-extension element.
+            </documentation>
+          </annotation>
+          <selector xpath="tns:published-events"/>
+          <field xpath="."/>
+        </unique>
+
+        <unique name="handled-event-name-uniqueness">
+          <annotation>
+            <documentation>
+              The handled-events element contains the handled event's name.
+              This handled event name must be unique within the portlet-extension element.
+            </documentation>
+          </annotation>
+          <selector xpath="tns:handled-events"/>
+          <field xpath="."/>
+        </unique>
+
+        <unique name="navigation-parameter-name-uniqueness">
+          <annotation>
+            <documentation>
+              The navigation-parameters/name element contains the navigation parameter's name.
+              This navigation parameter name must be unique within the portlet-extension element.
+            </documentation>
+          </annotation>
+          <selector xpath="tns:navigation-parameters"/>
+          <field xpath="tns:name"/>
+        </unique>
+
+      </element>
+      <element name="export-size-limit" type="int" minOccurs="0"/>
+      <element name="allow-export" type="boolean" minOccurs="0"/>
+      <element name="allow-import" type="boolean" minOccurs="0"/>
+      <element name="allow-copy-portlets" type="boolean" minOccurs="0"/>
+      <element name="export-encryption-data" type="tns:encryption-dataType" minOccurs="0"/>
+      <element name="use-jazn-security" type="boolean" minOccurs="0"/>
+    </sequence>
+    <attribute name="version" type="string" default="1.0"/>
+  </complexType>
+
+  <complexType name="portlet-extensionType">
+    <annotation>
+      <documentation>
+        The portlet element contains the declarative data of a portlet. 
+        Used in: portlet-app-extension
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="portlet-name" type="tns:portlet-nameType"/>
+      <element name="published-events" type="tns:published-eventType" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="handled-events" type="tns:handled-eventType" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="navigation-parameters" type="tns:navigation-parameterType" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="portlet-id" type="string"/>
+      <element name="allow-export" type="boolean" minOccurs="0"/>
+      <element name="allow-import" type="boolean" minOccurs="0"/>
+      <element name="hide-portlet" type="boolean" minOccurs="0"/>
+      <element name="require-iframe" type="boolean" minOccurs="0"/>
+      <element name="minimum-wsrp-version" type="positiveInteger" default="1" minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="published-eventType">
+    <annotation>
+      <documentation>
+        Published event type name.
+      </documentation>
+    </annotation>
+    <simpleContent>
+      <extension base="QName"/>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="handled-eventType">
+    <annotation>
+      <documentation>
+        Published event type name.
+      </documentation>
+    </annotation>
+    <simpleContent>
+      <extension base="QName"/>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="navigation-parameterType">
+    <annotation>
+      <documentation>
+        Navigation parameter type.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="name" type="QName"/>
+      <element name="type" type="QName"/>
+      <element name="label" type="tns:labelType"/>
+      <element name="hint" type="tns:hintType" minOccurs="0"/>
+      <element name="usage" type="string" minOccurs="0"/>
+      <element name="aliases" type="QName" minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="labelType">
+    <annotation>
+      <documentation>
+        It is a value for a label.
+        It has an optional attribute xml:lang to indicate
+        which language is used in the description according to
+        RFC 1766 (http://www.ietf.org/rfc/rfc1766.txt). The default
+        value of this attribute is English(#~@~\en#~@~]).
+      </documentation>
+    </annotation>
+    <simpleContent>
+      <extension base="tns:string">
+        <attribute ref="xml:lang"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="hintType">
+    <annotation>
+      <documentation>
+        It is a value for a hint.
+        It has an optional attribute xml:lang to indicate
+        which language is used in the description according to
+        RFC 1766 (http://www.ietf.org/rfc/rfc1766.txt). The default
+        value of this attribute is English(#~@~\en#~@~]).
+      </documentation>
+    </annotation>
+    <simpleContent>
+      <extension base="tns:string">
+        <attribute ref="xml:lang"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <simpleType name="string">
+    <annotation>
+      <documentation>
+        This is a special string datatype that is defined by J2EE 
+        as a base type for defining collapsed strings. When 
+        schemas require trailing/leading space elimination as 
+        well as collapsing the existing whitespace, this base 
+        type may be used.
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <whiteSpace value="collapse"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="portlet-nameType">
+    <annotation>
+      <documentation>
+        The portlet-name element contains the canonical name of the 
+        portlet. Each portlet name is unique within the portlet 
+        application.
+        Used in: portlet-extension
+     </documentation>
+    </annotation>
+    <simpleContent>
+      <extension base="string"/>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="encryption-dataType">
+    <sequence>
+      <element name="encryption-key" type="string"/>
+      <element name="encryption-transformation" type="string" minOccurs="0"/>
+      <element name="encryption-provider" type="string" minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+</schema>

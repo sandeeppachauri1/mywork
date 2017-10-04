@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="ReviewRequestedInventory_TaskNotificationPageDef" Package="inventoryapexbpm_ui_l1.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                    RangeSize="25" BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.task" id="taskIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="systemActions" RangeSize="50"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.actionType"
+                      id="systemActionsIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="customActions" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.actionType"
+                      id="customActionsIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="fromUser" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.identityType" id="fromUserIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="assignees" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.identityType" id="assigneesIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="userComment" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.commentType" id="userCommentIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="userCommentIterator" Binds="updatedBy" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.identityType" id="updatedByIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="attachment" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.attachmentType"
+                      id="attachmentIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="attachmentIterator" Binds="ucmMetadataItem" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.ucmMetadataItemType"
+                      id="ucmMetadataItemIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="document" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.documentType" id="documentIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="collectionTarget" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.collectionTargetType"
+                      id="collectionTargetIterator"/>
+    <accessorIterator MasterBinding="collectionTargetIterator" Binds="keyList" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.keyListType" id="keyListIterator"/>
+    <accessorIterator MasterBinding="keyListIterator" Binds="key" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.keyType" id="keyIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.ReviewRequestedInventoryPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="bpmRequest" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.inventoryBPMRequestData"
+                      id="bpmRequestIterator"/>
+    <accessorIterator MasterBinding="bpmRequestIterator" Binds="inventoryRequestBPMList" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.inventoryRequestMaster"
+                      id="inventoryRequestBPMListIterator"/>
+    <searchRegion Binds="inventoryRequestBPMListIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="inventoryRequestBPMListQuery"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="request" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.inventoryRequestData"
+                      id="requestIterator"/>
+    <accessorIterator MasterBinding="requestIterator" Binds="inventoryRequestList" RangeSize="25"
+                      DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory.inventoryRequestMaster"
+                      id="inventoryRequestListIterator"/>
+    <searchRegion Binds="inventoryRequestListIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="inventoryRequestListQuery"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.InventoryApexBPM_UI_L1_ReviewRequestedInventory.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String" NDValue=""/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String" NDValue=""/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String" NDValue=""/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="UpdateAction" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String" NDValue=""/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="update" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <navigationlist IterBinding="systemActionsIterator" ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator" id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <navigationlist IterBinding="customActionsIterator" ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="Claim" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="taskIterator" id="title">
+      <AttrNames>
+        <Item Value="title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="creator">
+      <AttrNames>
+        <Item Value="creator"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="ownerUser">
+      <AttrNames>
+        <Item Value="ownerUser"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="priority">
+      <AttrNames>
+        <Item Value="priority"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="dueDate">
+      <AttrNames>
+        <Item Value="dueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="creatorDisplayName">
+      <AttrNames>
+        <Item Value="creatorDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="ownerUserDisplayName">
+      <AttrNames>
+        <Item Value="ownerUserDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="acquiredBy">
+      <AttrNames>
+        <Item Value="acquiredBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="assignedDate">
+      <AttrNames>
+        <Item Value="assignedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="createdDate">
+      <AttrNames>
+        <Item Value="createdDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="expirationDate">
+      <AttrNames>
+        <Item Value="expirationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="outcome">
+      <AttrNames>
+        <Item Value="outcome"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="taskNumber">
+      <AttrNames>
+        <Item Value="taskNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="updatedDate">
+      <AttrNames>
+        <Item Value="updatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="actionDisplayName">
+      <AttrNames>
+        <Item Value="actionDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="activityId">
+      <AttrNames>
+        <Item Value="activityId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="acquiredByDisplayName">
+      <AttrNames>
+        <Item Value="acquiredByDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="fromUserIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="fromUserIterator" id="displayName">
+      <AttrNames>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="assigneesIterator" id="assignees">
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.identityType">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="userCommentIterator" id="userComment">
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.commentType">
+        <AttrNames>
+          <Item Value="comment"/>
+          <Item Value="updatedDate"/>
+          <Item Value="displayNameLanguage"/>
+          <Item Value="action"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="isSystemComment"/>
+          <Item Value="taskId"/>
+          <Item Value="commentScope"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="updatedBy"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.identityType">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="userCommentIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="userCommentIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="userCommentIterator" id="comment">
+      <AttrNames>
+        <Item Value="comment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userCommentIterator" id="commentScope">
+      <AttrNames>
+        <Item Value="commentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="updatedByIterator" id="updatedBy">
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.identityType">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attachmentIterator" id="attachment">
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.attachmentType">
+        <AttrNames>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="name"/>
+          <Item Value="updatedBy"/>
+          <Item Value="URI"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="taskId"/>
+          <Item Value="version"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="updatedDate"/>
+          <Item Value="correlationId"/>
+          <Item Value="size"/>
+          <Item Value="description"/>
+          <Item Value="storageType"/>
+          <Item Value="ucmDocType"/>
+          <Item Value="securityGroup"/>
+          <Item Value="account"/>
+          <Item Value="revision"/>
+          <Item Value="releaseDate"/>
+          <Item Value="expirationDate"/>
+          <Item Value="title"/>
+          <Item Value="attachmentScope"/>
+          <Item Value="isContentEncoded"/>
+          <Item Value="updatedByDisplayName"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.ucmMetadataItemType">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="attachmentIterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="attachmentIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="attachmentIterator" id="content">
+      <AttrNames>
+        <Item Value="content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="mimeType">
+      <AttrNames>
+        <Item Value="mimeType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedBy1">
+      <AttrNames>
+        <Item Value="updatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="URI">
+      <AttrNames>
+        <Item Value="URI"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedDate1">
+      <AttrNames>
+        <Item Value="updatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="description">
+      <AttrNames>
+        <Item Value="description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="ucmDocType">
+      <AttrNames>
+        <Item Value="ucmDocType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="securityGroup">
+      <AttrNames>
+        <Item Value="securityGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="account">
+      <AttrNames>
+        <Item Value="account"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="revision">
+      <AttrNames>
+        <Item Value="revision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="releaseDate">
+      <AttrNames>
+        <Item Value="releaseDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="expirationDate1">
+      <AttrNames>
+        <Item Value="expirationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="attachmentScope">
+      <AttrNames>
+        <Item Value="attachmentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ucmMetadataItemIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ucmMetadataItemIterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem">
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.ucmMetadataItemType">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="systemAttributesIterator" id="numberOfTimesModified">
+      <AttrNames>
+        <Item Value="numberOfTimesModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="version">
+      <AttrNames>
+        <Item Value="version"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="documentIterator" id="document">
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.documentType">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="URI"/>
+          <Item Value="updatedBy"/>
+          <Item Value="updatedDate"/>
+          <Item Value="ucmDocumentType"/>
+          <Item Value="UUID"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="documentIterator" id="CreateInsert3" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="documentIterator" id="Delete3" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="documentIterator" id="name1">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="documentIterator" id="content1">
+      <AttrNames>
+        <Item Value="content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="documentIterator" id="mimeType1">
+      <AttrNames>
+        <Item Value="mimeType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="documentIterator" id="URI1">
+      <AttrNames>
+        <Item Value="URI"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="documentIterator" id="ucmDocumentType">
+      <AttrNames>
+        <Item Value="ucmDocumentType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="workflowPattern">
+      <AttrNames>
+        <Item Value="workflowPattern"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="collectionTargetIterator" id="collectionTarget">
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.collectionTargetType">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="xpath"/>
+          <Item Value="collectionName"/>
+          <Item Value="type"/>
+          <Item Value="targetIndex"/>
+          <Item Value="referencedTaskId"/>
+          <Item Value="taskAggregationId"/>
+          <Item Value="status"/>
+          <Item Value="displayName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="keyList"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.keyListType">
+        <Accessors>
+          <Item Value="key"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.keyType">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="collectionTargetIterator" id="collectionName">
+      <AttrNames>
+        <Item Value="collectionName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="collectionTargetIterator" id="targetIndex">
+      <AttrNames>
+        <Item Value="targetIndex"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="keyListIterator" id="keyList"></tree>
+    <tree IterBinding="keyIterator" id="key"></tree>
+    <tree IterBinding="inventoryRequestBPMListIterator" id="inventoryRequestBPMList">
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.inventoryRequestMaster"
+                      Name="inventoryRequestBPMList0">
+        <AttrNames>
+          <Item Value="DC_CODE"/>
+          <Item Value="ADJ_NO"/>
+          <Item Value="TRAN_DATE"/>
+          <Item Value="REQUESTED_BY"/>
+          <Item Value="REASON_CODE"/>
+          <Item Value="STORER"/>
+          <Item Value="BIN_CODE"/>
+          <Item Value="ITEM"/>
+          <Item Value="REASON"/>
+          <Item Value="ADJ_DAT"/>
+          <Item Value="ADJ_QTY"/>
+          <Item Value="Transaction_ID"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="inventoryRequestListIterator" id="inventoryRequestList">
+      <nodeDefinition DefName="InventoryApexBPM_UI_L1_ReviewRequestedInventory.inventoryRequestMaster"
+                      Name="inventoryRequestList0">
+        <AttrNames>
+          <Item Value="DC_CODE"/>
+          <Item Value="ADJ_NO"/>
+          <Item Value="TRAN_DATE"/>
+          <Item Value="REQUESTED_BY"/>
+          <Item Value="REASON_CODE"/>
+          <Item Value="STORER"/>
+          <Item Value="BIN_CODE"/>
+          <Item Value="ITEM"/>
+          <Item Value="REASON"/>
+          <Item Value="ADJ_DAT"/>
+          <Item Value="ADJ_QTY"/>
+          <Item Value="Transaction_ID"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

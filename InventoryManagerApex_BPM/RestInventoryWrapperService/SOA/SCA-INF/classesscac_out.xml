@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage</loc>
+      <line>50</line>
+      <col/>
+      <file>BPEL/BPELProcess1.bpel</file>
+      <name>BPEL/BPELProcess1.bpel</name>
+      <fix>None</fix>
+      <msg>Implicit conversion of payload MAY be performed during &lt;onMessage> ([application/xml] ==> application/json)</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage[2]</loc>
+      <line>65</line>
+      <col/>
+      <file>BPEL/BPELProcess1.bpel</file>
+      <name>BPEL/BPELProcess1.bpel</name>
+      <fix>None</fix>
+      <msg>Implicit conversion of payload MAY be performed during &lt;onMessage> ([application/xml] ==> application/json)</msg>
+   </Fault>
+</Faults>

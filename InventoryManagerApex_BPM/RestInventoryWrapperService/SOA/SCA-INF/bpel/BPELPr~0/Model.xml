@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer
+
+  Created: Fri Jun 30 13:56:24 IST 2017
+  Author:  Sandeep
+  Type: BPEL 1.1 Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+--><process name="BPELProcess1" targetNamespace="http://xmlns.oracle.com/InventoryManagerApex_BPM/RestInventoryWrapperService/BPELProcess1" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:client="http://xmlns.oracle.com/InventoryManagerApex_BPM/RestInventoryWrapperService/BPELProcess1" xmlns:ora="http://schemas.oracle.com/xpath/extension" xmlns:bpelx="http://schemas.oracle.com/bpel/extension" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="json" xmlns:ns2="http://xmlns.oracle.com/elementAnyType" xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:ns3="http://TargetNamespace.com/nxsdschema" id="BpPrc0">
+    <bpelx:annotation>
+        <bpelx:analysis>
+            <bpelx:property name="wsdlFile">
+                ../WSDLs/BPELProcess1.wsdl
+            </bpelx:property>
+        </bpelx:analysis>
+    </bpelx:annotation>
+    <partnerLinks>
+        <partnerLink name="RestService" bpelx:wadl="yes"/>
+
+    </partnerLinks>
+    <variables>
+        <variable name="RestService_submitRequest_InputVar" bpelx:json="object"/>
+<variable name="RestService_getStatus_InputVar" bpelx:json="object"/>
+
+        <variable name="RestService_submitRequest_OutputVar" bpelx:json="object"/>
+<variable name="RestService_getStatus_OutputVar" bpelx:json="object"/>
+        <variable name="Translate1_OutputVar_1" element="ns3:Root-Element"/>
+    </variables>
+    <!--
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       ORCHESTRATION LOGIC
+       Set of activities coordinating the flow of messages across the
+       services integrated within this business process
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <sequence name="main" id="BpSeq0">
+        <pick name="Pick1" createInstance="yes" id="BpPck0">
+            <onMessage bpelx:name="RestService_submitRequest_OnMessage" partnerLink="RestService" bpelx:method="submitRequest" variable="RestService_submitRequest_InputVar" id="BpOMs0">
+   <sequence id="BpSeq1">
+        <empty id="BpEmp0"/>
+                    <assign name="Translate1" id="BpAss0">
+                        <bpelx:annotation>
+                            <bpelx:pattern>translate</bpelx:pattern>
+                        </bpelx:annotation>
+                        <copy>
+                            <from expression="ora:doTranslateFromNative(string(bpws:getVariableData('RestService_submitRequest_InputVar')), 'Schemas/nxsd_schema1.xsd', 'Root-Element', 'DOM')"/>
+                            <to variable="Translate1_OutputVar_1"/>
+                        </copy>
+                    </assign>
+                    <reply name="RestService_submitRequest_Reply" partnerLink="RestService" bpelx:method="submitRequest" variable="RestService_submitRequest_OutputVar" id="BpRpl0"/> 
+   </sequence>
+</onMessage>
+<onMessage bpelx:name="RestService_getStatus_OnMessage" partnerLink="RestService" bpelx:method="getStatus" variable="RestService_getStatus_InputVar" id="BpOMs1">
+   <sequence id="BpSeq2">
+        <empty id="BpEmp1"/>
+        <reply name="RestService_getStatus_Reply" partnerLink="RestService" bpelx:method="getStatus" variable="RestService_getStatus_OutputVar" id="BpRpl1"/> 
+   </sequence>
+</onMessage>
+
+        </pick>
+    </sequence>
+</process>

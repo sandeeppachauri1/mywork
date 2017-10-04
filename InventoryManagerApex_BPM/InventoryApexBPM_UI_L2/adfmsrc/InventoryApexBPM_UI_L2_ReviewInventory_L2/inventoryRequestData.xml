@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.16.48" id="inventoryRequestData"
+          Package="InventoryApexBPM_UI_L2_ReviewInventory_L2"
+          BeanClass="InventoryApexBPM_UI_L2_ReviewInventory_L2.inventoryRequestData" isJavaBased="false">
+  <AccessorAttribute id="inventoryRequestList" IsCollection="true"
+                     BeanClass="InventoryApexBPM_UI_L2_ReviewInventory_L2.inventoryRequestMaster"
+                     CollectionBeanClass="InventoryApexBPM_UI_L2_ReviewInventory_L2.inventoryRequestMaster_inventoryRequestList_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="2147483640"/>
+      <Property Name="LABEL" Value="Inventory Request List"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="inventoryRequestList"/>
+      <Property Name="targetNamespace" Value="http://www.example.org"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

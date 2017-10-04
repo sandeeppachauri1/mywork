@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org"
+            elementFormDefault="qualified" xmlns:Q1="http://www.example.org">
+  <xsd:element name="inventoryRequestData">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="inventoryRequestList" type="Q1:inventoryRequestMaster" maxOccurs="unbounded" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="inventoryRequestMaster">
+    <xsd:sequence>
+      <xsd:element name="DC_CODE" type="xsd:string"/>
+      <xsd:element name="ADJ_NO" type="xsd:string"/>
+      <xsd:element name="TRAN_DATE" type="xsd:string"/>
+      <xsd:element name="REQUESTED_BY" type="xsd:string"/>
+      <xsd:element name="REASON_CODE" type="xsd:string"/>
+      <xsd:element name="STORER" type="xsd:string"/>
+      <xsd:element name="transactionList" type="Q1:inventoryRequestTransactions" maxOccurs="unbounded" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inventoryRequestTransactions">
+    <xsd:sequence>
+      <xsd:element name="BIN_CODE" type="xsd:string"/>
+      <xsd:element name="ITEM" type="xsd:string"/>
+      <xsd:element name="REASON" type="xsd:string"/>
+      <xsd:element name="ADJ_DAT" type="xsd:string"/>
+      <xsd:element name="REASON_CODE" type="xsd:string"/>
+      <xsd:element name="ADJ_QTY" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

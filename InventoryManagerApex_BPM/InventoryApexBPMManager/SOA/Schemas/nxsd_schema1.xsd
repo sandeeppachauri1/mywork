@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
+            xmlns:tns="http://TargetNamespace.com/createCSVFile"
+            targetNamespace="http://TargetNamespace.com/createCSVFile" elementFormDefault="qualified"
+            attributeFormDefault="unqualified" nxsd:version="NXSD" nxsd:stream="chars" nxsd:encoding="US-ASCII"
+            nxsd:hasHeader="true"
+            nxsd:headerLines="1"
+            nxsd:outboundHeader="DC_CODE,BIN_CODE,ITEM,UNIT,REASON,SELL_BY_DATE ${eol}"
+            nxsd:headerLinesTerminatedBy="${eol}">
+  <xsd:element name="Root-Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Inventory" minOccurs="1" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="C1" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy='"'/>
+              <xsd:element name="C2" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy='"'/>
+              <xsd:element name="C3" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy='"'/>
+              <xsd:element name="C4" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy='"'/>
+              <xsd:element name="C5" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy='"'/>
+              <xsd:element name="C6" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="${eol}"
+                           nxsd:quotedBy='"'/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation>
+    <xsd:appinfo>NXSDSAMPLE=sample.csv</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

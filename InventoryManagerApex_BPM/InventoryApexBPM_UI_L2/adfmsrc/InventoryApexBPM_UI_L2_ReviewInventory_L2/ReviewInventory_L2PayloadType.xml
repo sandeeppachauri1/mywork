@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.16.48" id="ReviewInventory_L2PayloadType"
+          Package="InventoryApexBPM_UI_L2_ReviewInventory_L2"
+          BeanClass="InventoryApexBPM_UI_L2_ReviewInventory_L2.ReviewInventory_L2PayloadType" isJavaBased="false">
+  <AccessorAttribute id="bpmRequest" IsCollection="true"
+                     BeanClass="InventoryApexBPM_UI_L2_ReviewInventory_L2.inventoryBPMRequestData"
+                     CollectionBeanClass="InventoryApexBPM_UI_L2_ReviewInventory_L2.inventoryBPMRequestData_bpmRequest_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace" Value="http://www.example.org"/>
+      <Property Name="nextSibling" Value="request"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Bpm Request"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="bpmRequest"/>
+      <Property Name="targetNamespace" Value="http://www.example.org"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="request" IsCollection="true"
+                     BeanClass="InventoryApexBPM_UI_L2_ReviewInventory_L2.inventoryRequestData"
+                     CollectionBeanClass="InventoryApexBPM_UI_L2_ReviewInventory_L2.inventoryRequestData_request_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Request"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="request"/>
+      <Property Name="targetNamespace" Value="http://www.example.org"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

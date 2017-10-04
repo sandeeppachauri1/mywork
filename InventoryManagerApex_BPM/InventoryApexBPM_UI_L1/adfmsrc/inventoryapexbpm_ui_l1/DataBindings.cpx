@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="inventoryapexbpm_ui_l1" ClientType="Generic">
+  <pageMap>
+    <page path="/ReviewRequestedInventory_TaskDetails.jspx"
+          usageId="inventoryapexbpm_ui_l1_ReviewRequestedInventory_TaskDetailsPageDef"/>
+    <page path="/ReviewRequestedInventory_TaskNotification.jspx"
+          usageId="inventoryapexbpm_ui_l1_ReviewRequestedInventory_TaskNotificationPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="inventoryapexbpm_ui_l1_ReviewRequestedInventory_TaskDetailsPageDef"
+          path="inventoryapexbpm_ui_l1.pageDefs.ReviewRequestedInventory_TaskDetailsPageDef"/>
+    <page id="inventoryapexbpm_ui_l1_ReviewRequestedInventory_TaskNotificationPageDef"
+          path="inventoryapexbpm_ui_l1.pageDefs.ReviewRequestedInventory_TaskNotificationPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+        path="inventoryapexbpm_ui_l1.InventoryApexBPM_UI_L1_ReviewRequestedInventory"/>
+  </dataControlUsages>
+</Application>

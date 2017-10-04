@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org"
+            targetNamespace="http://www.example.org" elementFormDefault="qualified">
+  <xsd:element name="creditCardRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="FirstName" type="xsd:string"/>
+        <xsd:element name="LastName" type="xsd:string"/>
+        <xsd:element name="Address" type="xsd:string"/>
+        <xsd:element name="Mobile" type="xsd:string"/>
+        <xsd:element name="Address" type="xsd:string"/>
+        <xsd:element name="Profession" type="xsd:string"/>
+        <xsd:element name="Income_Per_Year" type="xsd:string"/>
+        <xsd:element name="Quotated_Credit_Limit" type="xsd:string"/>
+        <xsd:element name="Approved_Credit_Limit" type="xsd:string"/>
+        <xsd:element name="Card_Name" type="xsd:string"/>
+        <xsd:element name="uniqueRequestID" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="cancelCreditCardRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Cancellation_Reason" type="xsd:string"/>
+        <xsd:element name="uniqueRequestID" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

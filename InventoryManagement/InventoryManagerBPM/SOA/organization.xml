@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:organization xmlns:ns0="http://xmlns.oracle.com/bpm/organization" xmlns:ns1="http://xmlns.oracle.com/bpm/lpg/peopleQuery" xmlns:ns2="http://xmlns.oracle.com/bpm/identity" xmlns:ns3="http://xmlns.oracle.com/bpel/workflow/taskQuery" xmlns:ns4="http://xmlns.oracle.com/bpel/workflow/task">
+   <ns0:processOrganizationalUnitId>43cf04be-962c-4d69-baa8-faad9d363a41</ns0:processOrganizationalUnitId>
+   <ns0:processOrganizationalUnitName>My Company</ns0:processOrganizationalUnitName>
+   <ns0:updateExistingObjects>false</ns0:updateExistingObjects>
+   <ns0:organizationalUnits>
+      <ns0:organizationalUnit>
+         <ns0:organizationalUnitId>43cf04be-962c-4d69-baa8-faad9d363a41</ns0:organizationalUnitId>
+         <ns0:organizationalUnitName>My Company</ns0:organizationalUnitName>
+         <ns0:description></ns0:description>
+         <ns0:calendarRuleId>0ef6b265-c987-4cab-b4d0-244a3f20498b</ns0:calendarRuleId>
+         <ns0:calendarRuleName>My Organization Calendar</ns0:calendarRuleName>
+      </ns0:organizationalUnit>
+      <ns0:organizationalUnit>
+         <ns0:organizationalUnitId>e4f34d09-7c45-40e7-831e-8ac226cb381a</ns0:organizationalUnitId>
+         <ns0:parentOrganizationalUnitId>43cf04be-962c-4d69-baa8-faad9d363a41</ns0:parentOrganizationalUnitId>
+         <ns0:parentOrganizationalUnitName>My Company</ns0:parentOrganizationalUnitName>
+         <ns0:organizationalUnitName>Product Development</ns0:organizationalUnitName>
+         <ns0:description></ns0:description>
+      </ns0:organizationalUnit>
+      <ns0:organizationalUnit>
+         <ns0:organizationalUnitId>127ef2ea-b5d6-49aa-817b-15de0603d60c</ns0:organizationalUnitId>
+         <ns0:parentOrganizationalUnitId>43cf04be-962c-4d69-baa8-faad9d363a41</ns0:parentOrganizationalUnitId>
+         <ns0:parentOrganizationalUnitName>My Company</ns0:parentOrganizationalUnitName>
+         <ns0:organizationalUnitName>Product Testing</ns0:organizationalUnitName>
+      </ns0:organizationalUnit>
+      <ns0:organizationalUnit>
+         <ns0:organizationalUnitId>756b54ef-e3ff-452e-b5cc-38837ce313a9</ns0:organizationalUnitId>
+         <ns0:parentOrganizationalUnitId>127ef2ea-b5d6-49aa-817b-15de0603d60c</ns0:parentOrganizationalUnitId>
+         <ns0:parentOrganizationalUnitName>Product Testing</ns0:parentOrganizationalUnitName>
+         <ns0:organizationalUnitName>India</ns0:organizationalUnitName>
+      </ns0:organizationalUnit>
+      <ns0:organizationalUnit>
+         <ns0:organizationalUnitId>e6f2e94a-94bc-481b-a24e-1206bae61435</ns0:organizationalUnitId>
+         <ns0:parentOrganizationalUnitId>756b54ef-e3ff-452e-b5cc-38837ce313a9</ns0:parentOrganizationalUnitId>
+         <ns0:parentOrganizationalUnitName>India</ns0:parentOrganizationalUnitName>
+         <ns0:organizationalUnitName>Black Box Testing</ns0:organizationalUnitName>
+      </ns0:organizationalUnit>
+      <ns0:organizationalUnit>
+         <ns0:organizationalUnitId>cd7a3492-cc05-45b5-9fb0-47ea1478111f</ns0:organizationalUnitId>
+         <ns0:parentOrganizationalUnitId>756b54ef-e3ff-452e-b5cc-38837ce313a9</ns0:parentOrganizationalUnitId>
+         <ns0:parentOrganizationalUnitName>India</ns0:parentOrganizationalUnitName>
+         <ns0:organizationalUnitName>White Box Testing</ns0:organizationalUnitName>
+      </ns0:organizationalUnit>
+      <ns0:organizationalUnit>
+         <ns0:organizationalUnitId>df3de45e-a24f-4dc2-a5aa-ece97fce6eea</ns0:organizationalUnitId>
+         <ns0:parentOrganizationalUnitId>127ef2ea-b5d6-49aa-817b-15de0603d60c</ns0:parentOrganizationalUnitId>
+         <ns0:parentOrganizationalUnitName>Product Testing</ns0:parentOrganizationalUnitName>
+         <ns0:organizationalUnitName>US</ns0:organizationalUnitName>
+      </ns0:organizationalUnit>
+      <ns0:organizationalUnit>
+         <ns0:organizationalUnitId>53be2232-e4a5-4d78-b0e9-f5d360ceb48a</ns0:organizationalUnitId>
+         <ns0:parentOrganizationalUnitId>df3de45e-a24f-4dc2-a5aa-ece97fce6eea</ns0:parentOrganizationalUnitId>
+         <ns0:parentOrganizationalUnitName>US</ns0:parentOrganizationalUnitName>
+         <ns0:organizationalUnitName>Black Box Testing</ns0:organizationalUnitName>
+      </ns0:organizationalUnit>
+      <ns0:organizationalUnit>
+         <ns0:organizationalUnitId>624b94f9-4267-44e3-9015-7d87ab297c1b</ns0:organizationalUnitId>
+         <ns0:parentOrganizationalUnitId>127ef2ea-b5d6-49aa-817b-15de0603d60c</ns0:parentOrganizationalUnitId>
+         <ns0:parentOrganizationalUnitName>Product Testing</ns0:parentOrganizationalUnitName>
+         <ns0:organizationalUnitName>UK</ns0:organizationalUnitName>
+      </ns0:organizationalUnit>
+      <ns0:organizationalUnit>
+         <ns0:organizationalUnitId>e05ad505-60ef-4c90-b65a-6ad5dece2102</ns0:organizationalUnitId>
+         <ns0:parentOrganizationalUnitId>624b94f9-4267-44e3-9015-7d87ab297c1b</ns0:parentOrganizationalUnitId>
+         <ns0:parentOrganizationalUnitName>UK</ns0:parentOrganizationalUnitName>
+         <ns0:organizationalUnitName>Black Box Testing</ns0:organizationalUnitName>
+      </ns0:organizationalUnit>
+   </ns0:organizationalUnits>
+   <ns0:applicationRoles>
+      <ns0:applicationRole id="InventoryManagerBPM.ProcessOwner" isProcessRole="true">
+         <ns2:name>InventoryManagerBPM.Process Owner</ns2:name>
+         <ns0:processRole id="ProcessOwner" name="Process Owner"/>
+      </ns0:applicationRole>
+      <ns0:applicationRole id="InventoryManagerBPM.ProcessReviewer" isProcessRole="true">
+         <ns2:name>InventoryManagerBPM.Process Reviewer</ns2:name>
+         <ns0:processRole id="ProcessReviewer" name="Process Reviewer"/>
+      </ns0:applicationRole>
+      <ns0:applicationRole id="InventoryManagerBPM.InventoryManager_Rev1" isProcessRole="true">
+         <ns2:name>InventoryManagerBPM.InventoryManager_Rev1</ns2:name>
+         <ns0:processRole id="InventoryManager_Rev1" name="InventoryManager_Rev1"/>
+      </ns0:applicationRole>
+      <ns0:applicationRole id="InventoryManagerBPM.InventoryManager_Rev2" isProcessRole="true">
+         <ns2:name>InventoryManagerBPM.InventoryManager_Rev2</ns2:name>
+         <ns0:processRole id="InventoryManager_Rev2" name="InventoryManager_Rev2"/>
+      </ns0:applicationRole>
+      <ns0:applicationRole id="InventoryManagerBPM.InventoryManager_Rev3" isProcessRole="true">
+         <ns2:name>InventoryManagerBPM.InventoryManager_Rev3</ns2:name>
+         <ns0:processRole id="InventoryManager_Rev3" name="InventoryManager_Rev3"/>
+      </ns0:applicationRole>
+   </ns0:applicationRoles>
+   <ns0:applicationRoleOrgUnitCalendarAssociations/>
+   <ns0:participantPropertiesList/>
+   <ns0:holidayRules>
+      <ns0:holidayRule>
+         <ns0:name>MY Holiday Rules</ns0:name>
+         <ns0:id>3e6bd85b-27a7-4b6b-9a69-c254ae35ff14</ns0:id>
+         <ns0:holidays>
+            <ns0:name>X-Mas</ns0:name>
+            <ns0:holidayPattern>OnlyForCurrentYear</ns0:holidayPattern>
+            <ns0:holidayDate>2017-12-25</ns0:holidayDate>
+         </ns0:holidays>
+      </ns0:holidayRule>
+   </ns0:holidayRules>
+   <ns0:calendarRules>
+      <ns0:calendarRule>
+         <ns0:name>My Organization Calendar</ns0:name>
+         <ns0:id>0ef6b265-c987-4cab-b4d0-244a3f20498b</ns0:id>
+         <ns0:timeZone>Asia/Calcutta</ns0:timeZone>
+         <ns0:workdayList>
+            <ns0:workday>
+               <ns0:weekDay>Monday</ns0:weekDay>
+               <ns0:workPeriod>
+                  <ns0:startTime>21:00:05.147+05:30</ns0:startTime>
+                  <ns0:endTime>00:00:05.147+05:30</ns0:endTime>
+               </ns0:workPeriod>
+               <ns0:workPeriod>
+                  <ns0:startTime>13:00:05.147+05:30</ns0:startTime>
+                  <ns0:endTime>17:00:05.147+05:30</ns0:endTime>
+               </ns0:workPeriod>
+            </ns0:workday>
+            <ns0:workday>
+               <ns0:weekDay>Tuesday</ns0:weekDay>
+               <ns0:workPeriod>
+                  <ns0:startTime>21:00:05.147+05:30</ns0:startTime>
+                  <ns0:endTime>12:00:05.147+05:30</ns0:endTime>
+               </ns0:workPeriod>
+               <ns0:workPeriod>
+                  <ns0:startTime>13:00:05.147+05:30</ns0:startTime>
+                  <ns0:endTime>17:00:05.147+05:30</ns0:endTime>
+               </ns0:workPeriod>
+            </ns0:workday>
+            <ns0:workday>
+               <ns0:weekDay>Wednesday</ns0:weekDay>
+               <ns0:workPeriod>
+                  <ns0:startTime>21:00:05.147+05:30</ns0:startTime>
+                  <ns0:endTime>12:00:05.147+05:30</ns0:endTime>
+               </ns0:workPeriod>
+               <ns0:workPeriod>
+                  <ns0:startTime>13:00:05.147+05:30</ns0:startTime>
+                  <ns0:endTime>17:00:05.147+05:30</ns0:endTime>
+               </ns0:workPeriod>
+            </ns0:workday>
+            <ns0:workday>
+               <ns0:weekDay>Thursday</ns0:weekDay>
+               <ns0:workPeriod>
+                  <ns0:startTime>21:00:05.147+05:30</ns0:startTime>
+                  <ns0:endTime>12:00:05.147+05:30</ns0:endTime>
+               </ns0:workPeriod>
+               <ns0:workPeriod>
+                  <ns0:startTime>13:00:05.147+05:30</ns0:startTime>
+                  <ns0:endTime>17:00:05.147+05:30</ns0:endTime>
+               </ns0:workPeriod>
+            </ns0:workday>
+            <ns0:workday>
+               <ns0:weekDay>Friday</ns0:weekDay>
+               <ns0:workPeriod>
+                  <ns0:startTime>21:00:05.147+05:30</ns0:startTime>
+                  <ns0:endTime>12:00:05.147+05:30</ns0:endTime>
+               </ns0:workPeriod>
+               <ns0:workPeriod>
+                  <ns0:startTime>13:00:05.147+05:30</ns0:startTime>
+                  <ns0:endTime>17:00:05.147+05:30</ns0:endTime>
+               </ns0:workPeriod>
+            </ns0:workday>
+         </ns0:workdayList>
+         <ns0:holidayRuleId>3e6bd85b-27a7-4b6b-9a69-c254ae35ff14</ns0:holidayRuleId>
+         <ns0:holidayRuleName>MY Holiday Rules</ns0:holidayRuleName>
+      </ns0:calendarRule>
+   </ns0:calendarRules>
+   <ns0:businessParameters/>
+</ns0:organization>

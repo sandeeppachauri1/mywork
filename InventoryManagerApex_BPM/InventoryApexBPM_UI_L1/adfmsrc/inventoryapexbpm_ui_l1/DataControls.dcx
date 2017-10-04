@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.2.1.16.48" id="DataControls"
+                    Package="inventoryapexbpm_ui_l1">
+  <AdapterDataControl id="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      BeanClass="InventoryApexBPM_UI_L1_ReviewRequestedInventory"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/E:/BpmApplication/mywork/InventoryManagerApex_BPM/InventoryApexBPMManager/SOA/Schemas/ReviewRequestedInventoryWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../InventoryApexBPMManager/SOA/HumanTasks/ReviewRequestedInventory.task"
+                      InitiationTask="false" DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

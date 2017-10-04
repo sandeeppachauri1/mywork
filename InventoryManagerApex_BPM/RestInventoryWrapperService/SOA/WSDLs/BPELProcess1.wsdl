@@ -1,0 +1,24 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="BPELProcess1"
+     targetNamespace="http://xmlns.oracle.com/InventoryManagerApex_BPM/RestInventoryWrapperService/BPELProcess1"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:client="http://xmlns.oracle.com/InventoryManagerApex_BPM/RestInventoryWrapperService/BPELProcess1"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:ns1="http://TargetNamespace.com/nxsdschema"
+    >
+    <wsdl:types>
+        <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/InventoryManagerApex_BPM/RestInventoryWrapperService/BPELProcess1"
+             xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/InventoryManagerApex_BPM/RestInventoryWrapperService/BPELProcess1"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:ns1="http://TargetNamespace.com/nxsdschema"/>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/InventoryManagerApex_BPM/RestInventoryWrapperService/BPELProcess1"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:ns1="http://TargetNamespace.com/nxsdschema">
+            <xsd:import namespace="http://TargetNamespace.com/nxsdschema" schemaLocation="../Schemas/nxsd_schema1.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/nxsdschema" schemaLocation="../Schemas/nxsd_schema2.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+</wsdl:definitions>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="12.1.3" fileRevision="20120601"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+   <component name="InventoryApexProcess">
+      <topicDocumentations>
+         <topicDocumentation name="InventoryApexProcess"/>
+         <topicDocumentation name="ACT19644572602725">
+            <labels>
+               <label locale="en">ReviewRequestedInventory</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT19651659743365">
+            <labels>
+               <label locale="en">ReviewInventory_L2</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT19685900119415">
+            <labels>
+               <label locale="en">MainResponseListAdded</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT19685925369062">
+            <labels>
+               <label locale="en">ReviewerStatusAdded</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT19697222901033">
+            <labels>
+               <label locale="en">GenerateCSVFile</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT19746253097785">
+            <labels>
+               <label locale="en">L1_ResponseAdded</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT19746254529032">
+            <labels>
+               <label locale="en">L1_ReviewStatus</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT19644522882397">
+            <labels>
+               <label locale="en">Start</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT19644522882358">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW19703102288529">
+            <labels>
+               <label locale="en">CheckApprovalStatus</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW19746237710722">
+            <labels>
+               <label locale="en">Check_L1_Status</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf1964452288246">
+            <labels>
+               <label locale="en">Send Request To Level 1</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf19685899510831">
+            <labels>
+               <label locale="en">Add In Temp Main Response</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf1969673169810">
+            <labels>
+               <label locale="en">Add Approval Status In Main Response</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf19696733317491">
+            <labels>
+               <label locale="en">Check Approval Status For CSV Generation</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf19697226608129"/>
+         <topicDocumentation name="sf19703105077156">
+            <labels>
+               <label locale="en">Approved</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf19703105444065">
+            <labels>
+               <label locale="en">Rejected</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf19746239496630">
+            <labels>
+               <label locale="en">Send For Review</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf19746240196587">
+            <labels>
+               <label locale="en">L1 Approved</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf19746254313522"/>
+         <topicDocumentation name="sf19746255755141"/>
+         <topicDocumentation name="sf19746255992396"/>
+      </topicDocumentations>
+   </component>
+</processDocumentation>

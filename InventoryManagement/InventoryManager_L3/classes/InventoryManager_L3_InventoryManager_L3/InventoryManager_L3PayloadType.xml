@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.16.48" id="InventoryManager_L3PayloadType"
+          Package="InventoryManager_L3_InventoryManager_L3"
+          BeanClass="InventoryManager_L3_InventoryManager_L3.InventoryManager_L3PayloadType" isJavaBased="false">
+  <AccessorAttribute id="start" IsCollection="true" BeanClass="InventoryManager_L3_InventoryManager_L3.start"
+                     CollectionBeanClass="InventoryManager_L3_InventoryManager_L3.start_start_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Start"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="start"/>
+      <Property Name="targetNamespace" Value="http://www.example.org"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

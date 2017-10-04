@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- $Header: $ -->
+
+<rc:extension xmlns:rc="http://xmlns.oracle.com/adf/rc/extension"
+              id="oracle.jdeveloper.rcasadapter"
+              name="Resource Catalog Application Server Provider"
+              version="11.1.1.0.0">
+  
+  <rc:connection-type class="oracle.rc.asadapter.connection.AppServerConnectionType"/>
+
+  <rc:rc-adapter connectionTypeClass="oracle.rc.asadapter.connection.AppServerConnectionType" 
+                 catalogContextFactoryClass="oracle.rc.asadapter.context.InitialContextFactory"/>
+
+</rc:extension>

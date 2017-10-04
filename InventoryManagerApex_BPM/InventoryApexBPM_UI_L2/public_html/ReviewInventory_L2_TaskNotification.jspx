@@ -1,0 +1,451 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:trh="http://myfaces.apache.org/trinidad/html"
+            xmlns:wf="http://xmlns.oracle.com/bpel/workflow/workflow-taglib.tld"
+            xmlns:wlc="http://xmlns.oracle.com/bpel/workflow/worklist">
+        <af:document title="ReviewInventory_L2_TaskNotification.jspx" id="d1">
+            <af:resource type="javascript" source="/jsLibs/commonBPM.js"/>
+            <af:resource type="javascript" source="/jsLibs/taskDetails.js"/>
+            <af:resource type="javascript" source="/jsLibs/commonBPM.js"/>
+            <af:form id="f1">
+                <af:panelGroupLayout layout="vertical" inlineStyle="padding: 5px;" id="pgl6">
+                    <af:showDetailHeader size="2" text="#{bindings.title.inputValue}"
+                                         shortDesc="#{resources.TASK_HEADER}" disclosed="true"
+                                         icon="/hw_images/singleapprover_35x35.png" id="sdh2">
+                        <af:panelFormLayout maxColumns="3" rows="4" id="pfl1">
+                            <af:panelLabelAndMessage label="#{resources.TASK_NUMBER}" id="plam2">
+                                <af:outputText value="#{bindings.taskNumber.inputValue}" id="ot20"/>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="#{resources.STATE}" id="plam1">
+                                <af:outputText value="#{resources[bindings.state.inputValue]}" id="ot5"/>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="#{resources.OUTCOME}"
+                                                     rendered="#{!empty bindings.actionDisplayName.inputValue}"
+                                                     id="plam8">
+                                <af:outputText value="#{bindings.actionDisplayName.inputValue}" id="ot29"/>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="#{resources.PRIORITY}" id="plam3">
+                                <af:outputText value="#{bindings.priority.inputValue}" id="ot32"/>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="#{resources.CREATOR}"
+                                                     rendered="#{!empty bindings.creator.inputValue}" id="plam6">
+                                <af:outputText value="#{bindings.creatorDisplayName.inputValue}" id="ot8"/>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="#{resources.CREATE_DATE}"
+                                                     rendered="#{!empty bindings.createdDate.inputValue}" id="plam10">
+                                <af:outputText value="#{bindings.createdDate.inputValue}" id="ot21"/>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="#{resources.UPDATE_DATE}"
+                                                     rendered="#{!empty bindings.updatedDate.inputValue}" id="plam7">
+                                <af:outputText value="#{bindings.updatedDate.inputValue}" id="ot3"/>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="#{resources.EXPIRATION_DATE}"
+                                                     rendered="#{!empty bindings.expirationDate.inputValue}" id="plam4">
+                                <af:outputText value="#{bindings.expirationDate.inputValue}" id="ot44"/>
+                            </af:panelLabelAndMessage>
+                            <af:switcher facetName="#{bindings.taskViewContext == 'FYI'}" id="s10">
+                                <f:facet name="false">
+                                    <af:panelLabelAndMessage label="#{resources.ASSIGNEES}" id="plam9">
+                                        <af:iterator var="assignees" varStatus="varS"
+                                                     value="#{bindings.assignees.collectionModel}" id="i1">
+                                            <af:switcher facetName="#{varS.index == 0}" id="s21">
+                                                <f:facet name="false">
+                                                    <af:outputText value=", " id="ot40"/>
+                                                </f:facet>
+                                            </af:switcher>
+                                            <af:switcher facetName="#{!empty assignees.displayName}" id="s19">
+                                                <f:facet name="true">
+                                                    <af:outputText value="#{assignees.displayName}" id="ot9"/>
+                                                </f:facet>
+                                                <f:facet name="false">
+                                                    <af:outputText value="#{assignees.id}" id="ot33"/>
+                                                </f:facet>
+                                            </af:switcher>
+                                        </af:iterator>
+                                    </af:panelLabelAndMessage>
+                                </f:facet>
+                            </af:switcher>
+                            <af:panelLabelAndMessage id="acquiredBy" label="#{resources.ACQUIRED_BY}">
+                                <af:switcher facetName="#{!empty bindings.acquiredByDisplayName.inputValue}" id="s16">
+                                    <f:facet name="true">
+                                        <af:outputText value="#{bindings.acquiredByDisplayName.inputValue}" id="ot12"/>
+                                    </f:facet>
+                                    <f:facet name="false">
+                                        <af:outputText value="#{bindings.acquiredBy.inputValue}" id="ot43"/>
+                                    </f:facet>
+                                </af:switcher>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="#{resources.DUE_DATE}"
+                                                     rendered="#{!empty bindings.dueDate.inputValue}" id="plam5">
+                                <af:outputText value="#{bindings.dueDate.inputValue}" id="ot41"/>
+                            </af:panelLabelAndMessage>
+                        </af:panelFormLayout>
+                    </af:showDetailHeader>
+                    <af:spacer height="20" id="s6"/>
+                    <af:showDetailHeader size="2" id="payload" disclosed="true" text="#{resources.CONTENTS}">
+                        <af:panelGroupLayout id="plPnl76" layout="vertical" shortDesc="#{resources.CONTENTS}"
+                                             inlineStyle="margin-left: 5px; margin-right: 2px;">
+                            <af:table value="#{bindings.inventoryRequestBPMList.collectionModel}" var="row"
+                                      rows="#{bindings.inventoryRequestBPMList.rangeSize}"
+                                      emptyText="#{bindings.inventoryRequestBPMList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.inventoryRequestBPMList.collectionModel.selectedRow}"
+                                      rowSelection="multiple" fetchSize="#{bindings.inventoryRequestBPMList.rangeSize}"
+                                      filterModel="#{bindings.inventoryRequestBPMListQuery.queryDescriptor}"
+                                      filterVisible="true"
+                                      queryListener="#{bindings.inventoryRequestBPMListQuery.processQuery}"
+                                      varStatus="vs" id="t1">
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.DC_CODE.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.DC_CODE.label}"
+                                           id="c24">
+                                    <af:outputText value="#{row.DC_CODE}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.DC_CODE.tooltip}"
+                                                   id="ot34"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.ADJ_NO.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.ADJ_NO.label}" id="c19">
+                                    <af:outputText value="#{row.ADJ_NO}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.ADJ_NO.tooltip}"
+                                                   id="ot23"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.TRAN_DATE.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.TRAN_DATE.label}"
+                                           id="c20">
+                                    <af:outputText value="#{row.TRAN_DATE}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.TRAN_DATE.tooltip}"
+                                                   id="ot37"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.REQUESTED_BY.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.REQUESTED_BY.label}"
+                                           id="c6">
+                                    <af:outputText value="#{row.REQUESTED_BY}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.REQUESTED_BY.tooltip}"
+                                                   id="ot30"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.REASON_CODE.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.REASON_CODE.label}"
+                                           id="c1">
+                                    <af:outputText value="#{row.REASON_CODE}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.REASON_CODE.tooltip}"
+                                                   id="ot47"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.STORER.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.STORER.label}" id="c9">
+                                    <af:outputText value="#{row.STORER}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.STORER.tooltip}"
+                                                   id="ot14"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.BIN_CODE.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.BIN_CODE.label}"
+                                           id="c5">
+                                    <af:outputText value="#{row.BIN_CODE}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.BIN_CODE.tooltip}"
+                                                   id="ot17"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.ITEM.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.ITEM.label}" id="c25">
+                                    <af:outputText value="#{row.ITEM}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.ITEM.tooltip}"
+                                                   id="ot31"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.REASON.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.REASON.label}" id="c7">
+                                    <af:outputText value="#{row.REASON}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.REASON.tooltip}"
+                                                   id="ot13"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.ADJ_DAT.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.ADJ_DAT.label}"
+                                           id="c13">
+                                    <af:outputText value="#{row.ADJ_DAT}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.ADJ_DAT.tooltip}"
+                                                   id="ot35"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.ADJ_QTY.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.ADJ_QTY.label}"
+                                           id="c15">
+                                    <af:outputText value="#{row.ADJ_QTY}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.ADJ_QTY.tooltip}"
+                                                   id="ot24"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestBPMList.hints.Transaction_ID.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestBPMList.hints.Transaction_ID.label}"
+                                           id="c22">
+                                    <af:outputText value="#{row.Transaction_ID}"
+                                                   shortDesc="#{bindings.inventoryRequestBPMList.hints.Transaction_ID.tooltip}"
+                                                   id="ot22"/>
+                                </af:column>
+                            </af:table>
+                            <af:table value="#{bindings.inventoryRequestList.collectionModel}" var="row"
+                                      rows="#{bindings.inventoryRequestList.rangeSize}"
+                                      emptyText="#{bindings.inventoryRequestList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.inventoryRequestList.collectionModel.selectedRow}"
+                                      rowSelection="multiple" fetchSize="#{bindings.inventoryRequestList.rangeSize}"
+                                      filterModel="#{bindings.inventoryRequestListQuery.queryDescriptor}"
+                                      filterVisible="true"
+                                      queryListener="#{bindings.inventoryRequestListQuery.processQuery}" varStatus="vs"
+                                      id="t3">
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.DC_CODE.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.DC_CODE.label}" id="c11">
+                                    <af:outputText value="#{row.DC_CODE}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.DC_CODE.tooltip}"
+                                                   id="ot18"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.ADJ_NO.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.ADJ_NO.label}" id="c21">
+                                    <af:outputText value="#{row.ADJ_NO}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.ADJ_NO.tooltip}"
+                                                   id="ot11"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.TRAN_DATE.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.TRAN_DATE.label}" id="c17">
+                                    <af:outputText value="#{row.TRAN_DATE}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.TRAN_DATE.tooltip}"
+                                                   id="ot26"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.REQUESTED_BY.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.REQUESTED_BY.label}"
+                                           id="c2">
+                                    <af:outputText value="#{row.REQUESTED_BY}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.REQUESTED_BY.tooltip}"
+                                                   id="ot48"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.REASON_CODE.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.REASON_CODE.label}"
+                                           id="c4">
+                                    <af:outputText value="#{row.REASON_CODE}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.REASON_CODE.tooltip}"
+                                                   id="ot46"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.STORER.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.STORER.label}" id="c23">
+                                    <af:outputText value="#{row.STORER}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.STORER.tooltip}"
+                                                   id="ot36"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.BIN_CODE.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.BIN_CODE.label}" id="c10">
+                                    <af:outputText value="#{row.BIN_CODE}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.BIN_CODE.tooltip}"
+                                                   id="ot10"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.ITEM.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.ITEM.label}" id="c18">
+                                    <af:outputText value="#{row.ITEM}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.ITEM.tooltip}"
+                                                   id="ot42"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.REASON.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.REASON.label}" id="c3">
+                                    <af:outputText value="#{row.REASON}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.REASON.tooltip}"
+                                                   id="ot19"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.ADJ_DAT.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.ADJ_DAT.label}" id="c12">
+                                    <af:outputText value="#{row.ADJ_DAT}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.ADJ_DAT.tooltip}"
+                                                   id="ot38"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.ADJ_QTY.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.ADJ_QTY.label}" id="c14">
+                                    <af:outputText value="#{row.ADJ_QTY}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.ADJ_QTY.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.inventoryRequestList.hints.Transaction_ID.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.inventoryRequestList.hints.Transaction_ID.label}"
+                                           id="c16">
+                                    <af:outputText value="#{row.Transaction_ID}"
+                                                   shortDesc="#{bindings.inventoryRequestList.hints.Transaction_ID.tooltip}"
+                                                   id="ot6"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelGroupLayout>
+                    </af:showDetailHeader>
+                    <af:spacer height="20" id="s3"/>
+                    <af:showDetailHeader size="2" id="histHd" text="#{resources.HISTORY}"
+                                         disclosureListener="#{pageFlowScope.aleComponentBean.toggle}" disclosed="true">
+                        <f:facet name="info"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="context"/>
+                        <af:panelGroupLayout layout="vertical" binding="#{pageFlowScope.aleComponentBean.historyPanel}"
+                                             id="historyPanel">
+                            <wlc:taskHistory initParam="#{pageFlowScope.aleComponentBean.comp}" showTabularView="true"
+                                             showGraphicalView="true" id="taskHst"/>
+                        </af:panelGroupLayout>
+                    </af:showDetailHeader>
+                    <af:spacer height="20" id="s18"/>
+                    <af:showDetailHeader size="2" id="cmAtt" inlineStyle="margin-top:24px;" disclosed="true"
+                                         shortDesc="#{resources.COMMENTS}" text="#{resources.COMMENTS}">
+                        <af:switcher facetName="#{actionAvailable.inNotificationClient}" id="s23">
+                            <f:facet name="false">
+                                <af:table verticalGridVisible="false" horizontalGridVisible="false"
+                                          value="#{bindings.userComment.children}" var="row"
+                                          rows="#{bindings.userComment.rangeSize}"
+                                          first="#{bindings.userComment.rangeStart}"
+                                          emptyText="#{bindings.userComment.viewable ? resources.NO_ROWS_YET : resources.ACCESS_DENIED}"
+                                          selectedRowKeys="#{bindings.userComment.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.userComment.collectionModel.makeCurrent}"
+                                          rowSelection="none" immediate="true" contentDelivery="immediate"
+                                          inlineStyle="overflow:auto;border:0px;width:720px" columnStretching="last"
+                                          summary="resources.COMMENTS_FOR_WORKLIST_TASK" id="t2">
+                                    <af:column width="700px" noWrap="false" separateRows="true" id="c8">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                            <af:outputText value="#{row.updatedDate}" inlineStyle="font-weight:bold"
+                                                           truncateAt="9999" id="ot7"/>
+                                            <af:outputText value="#{row.updatedBy.displayName}" truncateAt="9999"
+                                                           inlineStyle="margin-left:12px;font-weight:bold" id="ot49"/>
+                                        </af:panelGroupLayout>
+                                        <af:outputText value="#{row.comment}" truncateAt="9999"
+                                                       inlineStyle="margin-left:12px;font-weight:normal" id="ot39"/>
+                                    </af:column>
+                                </af:table>
+                            </f:facet>
+                            <f:facet name="true">
+                                <af:switcher facetName="#{empty bindings.userComment.children}" id="s20">
+                                    <f:facet name="true">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                            <af:spacer width="20" id="s4"/>
+                                            <af:outputText value="#{resources.NO_ROWS_YET}" id="ot45"/>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                    <f:facet name="false">
+                                        <af:listView value="#{bindings.userComment.children}" var="row" rows="0"
+                                                     id="lv2">
+                                            <af:listItem id="li2">
+                                                <af:panelGroupLayout layout="horizontal" id="pgl7">
+                                                    <af:spacer width="20" id="s1"/>
+                                                    <af:outputText value="#{row.updatedDate}"
+                                                                   inlineStyle="font-weight:bold" id="ot25">
+                                                        <f:convertDateTime type="#{pageFlowScope.dt}"
+                                                                           timeZone="#{pageFlowScope.tz}"
+                                                                           dateStyle="#{pageFlowScope.df}"
+                                                                           timeStyle="#{pageFlowScope.tf}"
+                                                                           pattern="#{pageFlowScope.dateTimePattern}"/>
+                                                    </af:outputText>
+                                                    <af:spacer width="12" id="s5"/>
+                                                    <af:outputText value="#{row.updatedBy.displayName}"
+                                                                   inlineStyle="font-weight:bold" id="ot4"/>
+                                                </af:panelGroupLayout>
+                                                <af:spacer width="20" id="s13"/>
+                                                <af:outputText value="#{row.comment}" id="ot15"/>
+                                                <af:spacer height="10" id="s7"/>
+                                            </af:listItem>
+                                        </af:listView>
+                                    </f:facet>
+                                </af:switcher>
+                            </f:facet>
+                        </af:switcher>
+                    </af:showDetailHeader>
+                    <af:spacer height="20" id="s12"/>
+                    <af:showDetailHeader size="2" text="#{resources.RELATED_LINKS}" disclosed="true"
+                                         contentStyle="padding: 5px;" id="sdh1">
+                        <af:switcher facetName="#{actionAvailable.inNotificationClient}" id="s2">
+                            <f:facet name="true">
+                                <af:switcher facetName="#{empty bindings.attachment.children}" id="s24">
+                                    <f:facet name="true">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl4">
+                                            <af:spacer width="20" id="s11"/>
+                                            <af:outputText value="#{resources.NO_ROWS_YET}" id="ot27"/>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                    <f:facet name="false">
+                                        <af:listView value="#{bindings.attachment.collectionModel}" var="row" rows="0"
+                                                     rendered="#{pageFlowScope.ADFHumanTaskBean.isAttachmentReady}"
+                                                     id="lv1">
+                                            <af:listItem id="li1">
+                                                <af:panelGroupLayout layout="horizontal" id="pgl5">
+                                                    <af:spacer width="20" id="s8"/>
+                                                    <af:outputText value="#{row.updatedDate}" id="ot28">
+                                                        <f:convertDateTime type="#{pageFlowScope.dt}"
+                                                                           timeZone="#{pageFlowScope.tz}"
+                                                                           dateStyle="#{pageFlowScope.df}"
+                                                                           timeStyle="#{pageFlowScope.tf}"
+                                                                           pattern="#{pageFlowScope.dateTimePattern}"/>
+                                                    </af:outputText>
+                                                    <af:spacer width="12" id="s22"/>
+                                                    <af:switcher facetName="#{!empty row.updatedByDisplayName}"
+                                                                 id="s14">
+                                                        <f:facet name="true">
+                                                            <af:outputText value="#{row.updatedByDisplayName}"
+                                                                           id="ot16"/>
+                                                        </f:facet>
+                                                        <f:facet name="false">
+                                                            <af:outputText value="#{row.updatedBy}" id="ot2"/>
+                                                        </f:facet>
+                                                    </af:switcher>
+                                                </af:panelGroupLayout>
+                                                <af:panelGroupLayout id="pgl1">
+                                                    <af:spacer width="20" id="s15"/>
+                                                    <af:switcher facetName="#{row.attachmentScope eq 'BPM'}" id="s17">
+                                                        <f:facet name="true">
+                                                            <af:switcher facetName="#{row.updatedBy eq pageFlowScope.ADFHumanTaskBean.user}"
+                                                                         id="s9">
+                                                                <f:facet name="false">
+                                                                    <af:link text="#{row.name}"
+                                                                             destination="#{pageFlowScope.readAttachmentBean.URL}"
+                                                                             shortDesc="#{resources.CANNOT_DEL_ATTACH}"
+                                                                             targetFrame="_blank"
+                                                                             inlineStyle="font-weight:bold; font-size:11px"
+                                                                             id="l1"/>
+                                                                </f:facet>
+                                                                <f:facet name="true">
+                                                                    <af:link text="#{row.name}"
+                                                                             destination="#{pageFlowScope.readAttachmentBean.URL}"
+                                                                             targetFrame="_blank"
+                                                                             inlineStyle="font-weight:bold; font-size:11px"
+                                                                             id="l2"/>
+                                                                </f:facet>
+                                                            </af:switcher>
+                                                        </f:facet>
+                                                        <f:facet name="false">
+                                                            <af:link text="#{row.name}"
+                                                                     destination="#{pageFlowScope.readAttachmentBean.URL}"
+                                                                     targetFrame="_blank"
+                                                                     inlineStyle="font-weight:bold; font-size:11px"
+                                                                     id="l3"/>
+                                                        </f:facet>
+                                                    </af:switcher>
+                                                    <af:spacer height="10" id="s25"/>
+                                                </af:panelGroupLayout>
+                                            </af:listItem>
+                                        </af:listView>
+                                    </f:facet>
+                                </af:switcher>
+                            </f:facet>
+                        </af:switcher>
+                    </af:showDetailHeader>
+                </af:panelGroupLayout>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

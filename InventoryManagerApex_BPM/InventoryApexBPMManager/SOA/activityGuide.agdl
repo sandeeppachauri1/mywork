@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tActivityGuide xmlns="http://xmlns.oracle.com/bpmn/workflow/AGDefinition" id="activityGuide" rootProcessRef="InventoryApexProcess" globalDisplayMode="always" globalTaskAccessMode="anyStates">
+   <title type="STATIC">
+      <value></value>
+   </title>
+   <description type="STATIC">
+      <value></value>
+   </description>
+   <iconLocation>resources/jdev_icon.gif</iconLocation>
+   <resourceBundle name="ActivityGuide" location="" external="false"/>
+   <milestone id="Inventory_Management_Milestone" milestoneDisplayMode="always" totalTaskLeft="1" position="0">
+      <title type="STATIC">
+         <value>Inventory Management Milestone</value>
+      </title>
+      <description type="STATIC">
+         <value>Inventory Management Milestone</value>
+      </description>
+      <iconLocation>resources/jdev_icon.gif</iconLocation>
+      <userTask idRef="ACT19644572602725" processIdRef="InventoryApexProcess" position="0" markedOptional="false" displayBlockedIcon="false" taskDisplayMode="default" totalTaskLeft="0" lastTask="false">
+         <displayBlockedIconText type="STATIC">
+            <value></value>
+         </displayBlockedIconText>
+      </userTask>
+      <userTask idRef="ACT19651659743365" processIdRef="InventoryApexProcess" position="1" markedOptional="false" displayBlockedIcon="false" taskDisplayMode="default" totalTaskLeft="0" lastTask="true">
+         <displayBlockedIconText type="STATIC">
+            <value></value>
+         </displayBlockedIconText>
+      </userTask>
+   </milestone>
+</tActivityGuide>

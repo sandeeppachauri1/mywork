@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<hwTaskFlows xmlns="http://xmlns.oracle.com/bpel/workflow/hwTaskFlowProperties">
+   <ApplicationName>worklist</ApplicationName>
+   <LookupType>LOCAL</LookupType>
+   <TaskFlowDeploy>false</TaskFlowDeploy>
+   <TaskFlowServer>
+      <hostName/>
+      <httpPort/>
+      <httpsPort/>
+   </TaskFlowServer>
+<hwTaskFlow><WorkflowName>InventoryManager_L1</WorkflowName><TaskDefinitionNamespace>http://xmlns.oracle.com/InventoryManagement/InventoryManagerBPM/InventoryManager_L1</TaskDefinitionNamespace><TaskFlowId>InventoryManager_L1_TaskFlow</TaskFlowId><TaskFlowFileName>WEB-INF/InventoryManager_L1_TaskFlow.xml</TaskFlowFileName></hwTaskFlow></hwTaskFlows>

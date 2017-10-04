@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:ext="http://jcp.org/jsr/198/extension-manifest"
+            xmlns:as="http://xmlns.oracle.com/ide/extension"
+            xmlns="http://xmlns.oracle.com/ide/extension"
+            targetNamespace="http://xmlns.oracle.com/ide/extension" 
+            elementFormDefault="qualified">
+            
+  <xsd:import namespace="http://jcp.org/jsr/198/extension-manifest"/>
+  
+  <xsd:element name="asadapter-spi-hook" 
+               type="as:asadapterSpiHookType"
+               substitutionGroup="ext:custom-hook">
+               
+    <xsd:annotation>
+      <xsd:documentation>Hook for AppServer Connection Adapters</xsd:documentation>
+    </xsd:annotation>
+    
+  </xsd:element>
+  
+  <xsd:complexType name="asadapterSpiHookType">
+    <xsd:complexContent>
+        <xsd:extension base="ext:customHookType">
+            <xsd:sequence>
+                <xsd:element name="presentation-providers" type="as:presentationProvidersType"
+                             minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="context-providers" type="as:contextProvidersType"
+                             minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <xsd:complexType name="presentationProvidersType">
+    <xsd:annotation>
+        <xsd:documentation>
+            Lists classes that implement oracle.rc.asadapter.connection.spi.PresentationProvider.
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+        <xsd:element name="provider-class" type="ext:className" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="contextProvidersType">
+    <xsd:annotation>
+        <xsd:documentation>
+            Lists classes that implement oracle.rc.asadapter.connection.spi.ContextProvider.
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+        <xsd:element name="visitor-class" type="ext:className" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
